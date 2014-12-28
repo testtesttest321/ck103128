@@ -1,0 +1,31 @@
+application: ck103128
+version: dev-0-0-0
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /css
+  static_dir: Templates/css
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /js
+  static_dir: Templates/js
+
+- url: /photo
+  static_dir: Templates/photo
+
+- url: /.*
+  script: main.application
+  secure: never
+
+builtins:
+- deferred: on
+
+libraries:
+- name: jinja2
+  version: latest
